@@ -1,0 +1,12 @@
+FROM ubuntu:18.04
+FROM python:3.8.13-slim-bullseye
+
+COPY requirements.txt .
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+COPY . /app
+EXPOSE 8001
+
+CMD [ "python","app.py" ]
